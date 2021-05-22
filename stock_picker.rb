@@ -8,15 +8,13 @@
 def stock_picker(days)
   result = []
   #find best day to sell
-  high_price = days.max
+
+  #omit first day as possible day to sell
+  sell_days = days[1..days.length]
+
+  high_price = sell_days.max
   sell_on = days.index(high_price)
 
-  #be careful about best price on first day
-  if sell_on == 0 
-    new_days = days[1..10]
-    high_price = new_days.max
-    sell_on = days.index(high_price)
-  end
   result.unshift(sell_on)
 
   #find best day to buy, before sell day
@@ -32,3 +30,4 @@ end
 print stock_picker([1, 3, 5, 9]) # [0, 3]
 print stock_picker([3, 1, 9, 5]) # [1, 2]
 print stock_picker([9, 3, 1, 5, 7]) # [2, 4]
+print stock_picker([17, 3, 6, 9, 15, 8, 6, 1, 10]) # [1, 4]
