@@ -18,9 +18,9 @@ def caeser_cipher(message, shift)
 
     char = char.chr
   end
-  puts char_list.join("")
+  char_list.join("")
 end
 
 
-caeser_cipher("This is a test.", 5)
+puts caeser_cipher("abcde", 100)
 caeser_cipher("My very secret message.", 3)
